@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>RAG Knowledge Assistant</title>
+    <link
+    rel="stylesheet"
+    href="/static/style.css"
+>
+
+    <!-- <link
+        rel="stylesheet"
+        href="style.css"
+    > -->
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">◈</div>
+
+                <div>
+                    <h1>RAG Assistant</h1>
+                    <span>Knowledge Base</span>
+                </div>
+            </div>
+
+
+            <div class="sidebar-section">
+
+                <p class="section-title">
+                    KNOWLEDGE BASE
+                </p>
+
+                <div class="sidebar-item">
+                    <span>📚</span>
+                    <span>Documents</span>
+                </div>
+
+                <div class="sidebar-item">
+                    <span>🔎</span>
+                    <span>Retrieval</span>
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-section">
+
+                <p class="section-title">
+                    SYSTEM
+                </p>
+
+                <div class="status-item">
+                    <span class="status-dot"></span>
+
+                    <div>
+                        <strong>API Status</strong>
+                        <small id="apiStatus">
+                            Checking...
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="tech-info">
+                    <span>⚡</span>
+                    <div>
+                        <strong>Powered by</strong>
+                        <small>Groq + ChromaDB</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+                <div>
+                    <span class="topbar-label">
+                        AI KNOWLEDGE ASSISTANT
+                    </span>
+
+                    <h2>
+                        Ask your knowledge base
+                    </h2>
+                </div>
+
+                <div class="connection">
+                    <span class="status-dot"></span>
+                    <span id="connectionText">
+                        Checking API
+                    </span>
+                </div>
+
+            </header>
+
+
+            <!-- QUESTION AREA -->
+
+            <section class="question-section">
+
+                <p class="intro-text">
+                    Search through your indexed documents
+                    and get answers using retrieval-augmented
+                    generation.
+                </p>
+
+
+                <div class="question-box">
+
+                    <textarea
+                        id="questionInput"
+                        placeholder="Ask something about RAG, chunking, retrieval, embeddings..."
+                        rows="4"
+                    ></textarea>
+
+
+                    <div class="question-actions">
+
+                        <span class="hint">
+                            Press Ctrl + Enter to ask
+                        </span>
+
+                        <button
+                            id="askButton"
+                            type="button"
+                        >
+                            Ask AI
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ANSWER -->
+
+            <section
+                class="answer-section"
+                id="answerSection"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            RESPONSE
+                        </span>
+
+                        <h3>AI Answer</h3>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="answer-card"
+                    id="answerCard"
+                >
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            Your answer will appear here
+                        </h3>
+
+                        <p>
+                            Ask a question to search your
+                            indexed knowledge base.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SOURCES -->
+
+            <section class="sources-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            RETRIEVED INFORMATION
+                        </span>
+
+                        <h3>
+                            Sources
+                        </h3>
+                    </div>
+
+                    <span
+                        id="sourceCount"
+                        class="source-count"
+                    >
+                        0 sources
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="sources-grid"
+                    id="sourcesContainer"
+                >
+
+                    <div class="sources-empty">
+                        Sources will appear after you
+                        ask a question.
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+
+<!-- 
+    <script src="script.js"></script> -->
+
+</body>
+</html>
